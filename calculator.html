@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Kalkulator Fungsi Kubik</title>
+    <!-- Tambahkan pustaka Desmos -->
+    <script src="https://www.desmos.com/api/v1.8/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    ">
+  </head>
+  <body>
+    <div class="home">
+      <a href="utama.html">Home</a>
+    </div>
+    <h1>Kalkulator Fungsi Kubik</h1>
+
+    <div id="input-container"></div>
+    <label for="a">Masukkan nilai a:</label>
+    <input type="number" id="a" placeholder="a" step="any" /><br />
+
+    <label for="b">Masukkan nilai b:</label>
+    <input type="number" id="b" placeholder="b" step="any" /><br />
+
+    <label for="c">Masukkan nilai c:</label>
+    <input type="number" id="c" placeholder="c" step="any" /><br />
+
+    <label for="c">Masukkan nilai d:</label>
+    <input type="number" id="d" placeholder="d" step="any" /><br />
+    <div class="btn">
+      <div class="hasil">
+        <button onclick="hitungFungsiKubik()">Hitung Grafik</button>
+      </div>
+    </div>
+    <div id="calculator" style="width: 600px; height: 500px"></div>
+
+    <script>
+      // Inisialisasi kalkulator Desmos
+      var elt = document.getElementById("calculator");
+      var calculator = Desmos.Calculator(elt);
+      var a = 0;
+
+      // Fungsi untuk menghitung dan menampilkan grafik fungsi kubik
+      function hitungFungsiKubik() {
+        // Dapatkan nilai a, b, dan c dari input
+        var a = parseFloat(document.getElementById("a").value);
+        var b = parseFloat(document.getElementById("b").value);
+        var c = parseFloat(document.getElementById("c").value);
+        var d = parseFloat(document.getElementById("d").value);
+
+        // Buat ekspresi kubik
+        var expression = `y = ${a}x^3 + ${b}x^2 + ${c}x + ${d}`;
+
+        // Atur ekspresi ke kalkulator Desmos
+        calculator.setExpression({ id: "graph1", latex: expression });
+
+        var a = +1;
+      }
+    </script>
+  </body>
+</html>
